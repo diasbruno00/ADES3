@@ -18,7 +18,10 @@ print(retornaVizinhos(2))
 
 # Lista de ajacência
 
-g2 = [[1,2],[0,2],[0,1,3],[2]]
+g2 = [[1,2],
+      [0,2],
+      [0,1,3]
+      ,[2]]
 
 def verificandoLigacao(g, posicao, numeroEncontrar):
     for numero in g[posicao]:
@@ -28,3 +31,13 @@ def verificandoLigacao(g, posicao, numeroEncontrar):
 
 
 print(verificandoLigacao(g2, 2, 3))
+
+
+grafo = {"Ana": {"Bia": 5, "Caio": 6},
+         "Bia": {"Ana": 5, "Caio": 8},
+         "Caio": {"Ana": 6, "Bia": 8, "Duda": 7},
+         "Duda": {"Caio": 7}}
+
+
+print("Caio" in grafo["Bia"])
+print("Bia" in grafo["Caio"])
