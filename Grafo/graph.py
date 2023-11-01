@@ -56,15 +56,12 @@ class Graph:
         return max(lista)
     
     def node_with_higest_defrre_in(self): # retorna o no de maior grau
-        list = []
-        for i, j in self.adj.items():
-            list.append(len(j))
-        
-        maior = max(list)
+       
+        maior = self.highest_degreen_in()
 
-        for i, j in self.adj.items():
-            if len(j) == maior:
-                return j
+        for chave in self.adj:
+            if len(self.adj[chave]) == maior:
+                return self.adj[chave]
     
     #def density(self): #
 
