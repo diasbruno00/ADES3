@@ -19,7 +19,7 @@ class Graph:
         if v not in self.adj: # caso não tenha o no V ele irar criar
             self.add_no(v)
 
-        self.adj[u][v] = weight # se ele não caiu nos if e pq existe um no U e no V entao ele irar relacionar o no U com o no V
+        self.adj[u][v] = weight # se ele não caiu nos if  e pq existe um no U e no V entao ele irar relacionar o no U com o no V
         self.num_edges += 1  
     
 
@@ -28,4 +28,51 @@ class Graph:
         self.add_edges(u,v,weigtht)  
 
         self.add_edges(v,u,weigtht)
+
+    def degree_out(self, node):
+        return len(self.adj[node])
     
+    def there_is_edge(self,u,v):
+       try:
+        return self.adj[u][v]
+       except Exception as error:
+           print("Não contem")
+    
+    def defreen_in(self,node): # verifica o grau de um no
+        for chave in self.adj:
+            if chave == node:
+                return len(self.adj[node])
+    
+    def neighBors(self,node): # recupera os nos vizinhos de um determinado no
+        lista = []
+        for chave in self.adj[node]:
+            lista.append(chave)
+        return lista
+    
+    def highest_degreen_in(self): # retorna o maior grau do grafo
+        lista = [ ]
+        for chave in self.adj:
+          lista.append( self.defreen_in(chave))
+        return max(lista)
+    
+    def node_with_higest_defrre_in(self): # retorna o no de maior grau
+        list = []
+        for i, j in self.adj.items():
+            list.append(len(j))
+        
+        maior = max(list)
+
+        for i, j in self.adj.items():
+            if len(j) == maior:
+                return j
+    
+    #def density(self): #
+
+     
+    #def complete(self): # verifica se o grafo e completo
+
+    
+    def printGraph(self):
+        nodes = self.adj.items()
+        for i, j in nodes:
+            print(j)
